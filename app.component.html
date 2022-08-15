@@ -1,0 +1,57 @@
+<h1> *ngFor</h1>
+<input type= "text"required [(ngModel)]="NewName"/>
+<button (click)="addName() "> add name</button>
+
+<ul>
+  <li *ngIf="names.length ===0"> F names </li>
+  <li *ngFor="let name of names; index as i ">
+   {{i}} {{name}}
+   <button (click)="deleteName(i)"> Delete</button>
+  </li>
+</ul>
+
+<hr>
+<h1> *ngIf</h1>
+<input type= "text"required [(ngModel)]="person. name"/>
+<p *ngIf="person.name === 'citlalli' ">soy cit  </p>
+<p *ngIf="person.name === 'sebastian' && person.age === 22; else Block">  soy sebas  </p>
+<ng-template #Block>
+  <p> bloque de else</p>
+</ng-template>
+
+<hr/>
+<h1>NgModel</h1>
+<p>Nombre {{person.name }}</p>
+<input type= "text"required #nameInput="ngModel" [(ngModel)]="person. name"/>
+<P> VALID : {{nameInput . valid }}</P>
+<input type= "number" min ="18" max ="36" required #ageInput="ngModel" [(ngModel)]="person. age"/>
+<p>valid : {{ ageInput.valid }} </p>
+<hr>
+<h1>Eventos</h1>
+<button [disabled]="btnDisabled">Enviar</button>
+<button (click)="toggleButton()">toggleButton</button>
+<p>Edad {{person.age }}</p>
+<button (click)="increaseAge()">Age ++</button >
+<button (click)="diminuirage()">Age --</button>
+<div class="box"(scroll)="onScroll($event)">
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, voluptatum odit ipsa voluptate soluta nesciunt, veritatis ducimus exercitationem doloribus quam quia autem eos eum atque. Omnis harum error blanditiis quam?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, facilis eum aliquam incidunt repellendus autem perspiciatis minima est excepturi ratione doloribus illo itaque fuga consectetur beatae, dolorum inventore rerum totam.</p>
+</div>
+<p>Nombre {{person.name }}</p>
+<input type= "text" [value]="person. name"(keyup)="changename($event)"/>
+
+<hr/>
+
+<h1>propiedades</h1>
+<button [disabled]="btnDisabled"> Enviar </button>
+<input type= "text" [value]="person. name"/>
+<progress max="100" [value]="person.age"></progress>
+<img width="100" [src]="person.avatar"/>
+<img src ={{img}} alt ="image">
+<hr/>
+
+<h1> Hola mundo </h1>
+<h2>{{ " hola mundo" . repeat (6)}}</h2>
+<p> 3+3 = {{3+3}}</p>
+<h3>Hola, soy {{name}} tengo  {{age}} </h3>
+<img src ={{img}} alt="image">
